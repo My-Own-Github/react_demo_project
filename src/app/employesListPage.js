@@ -3,11 +3,10 @@ import './avtarCard.css'
 import 'tachyons';
 import EmployeCard from './employeCard';
 import { connect } from 'react-redux';
-import Operation from '../app/duck/operation';
 import { store } from './store';
 import Actions from '../app/duck/action'
 import operation from '../app/duck/operation';
-import LoadingModal from '../app/loading-modal'
+import { Spinner } from "react-bootstrap";
 
 class EmployesListPage extends React.PureComponent {
     constructor(props) {
@@ -30,11 +29,15 @@ class EmployesListPage extends React.PureComponent {
         return (
             <React.Fragment>
                 <div>
-                    <LoadingModal label="Loading data..." />
-                    {this.props.employesList?.length > 0 &&
+                    {this.props.employesList?.length > 0 ?
                         <div className='mainpage'>
-                            <h1>Welcome to ReactJs Life</h1>
+                            <h1>List of Employees</h1>
                             <this.getEmployesLists />
+                        </div>
+                        :
+                        <div className="justify-content-center m-5">
+                             <Spinner animation="border" role="status"  variant="success" />
+                            <h4>Loading Data...</h4>
                         </div>
                     }
                 </div>

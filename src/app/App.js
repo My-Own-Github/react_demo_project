@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import EmployesListPage from './employesListPage';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
   return (

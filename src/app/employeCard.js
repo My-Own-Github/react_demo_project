@@ -10,7 +10,6 @@ class EmployeCard extends React.PureComponent {
         }
     }
 
-
     showEmployeDetail = () => {
         this.setState({ showModal: true })
     }
@@ -22,14 +21,17 @@ class EmployeCard extends React.PureComponent {
         return (
             <React.Fragment>
                 {this.state.showModal &&
-                    <Modal show={this.state.showModal} onHide={this.handleClose}  size="sm">
-                        <Modal.Header closeButton className="pb-0">
+                    <Modal show={this.state.showModal} onHide={this.handleClose}>
+                        {/* <Modal.Header closeButton className="pb-0">
                             <Modal.Title className="text-center"><h4>Employee Detail</h4></Modal.Title>
-                        </Modal.Header>
+                        </Modal.Header> */}
                         <Modal.Body>
                             <div className="card">
                                 <div className="card-body">
-                                    <p className="text-muted text-left mb-0">First Name &nbsp;:&nbsp;
+                                    <div className="text-center mb-4">
+                                        <h4><u>Employee Detail</u></h4>
+                                    </div>
+                                    <p className="text-muted text-left mb-0 mt-2">First Name &nbsp;:&nbsp;
                                         <span className="text-font-weight-bold">
                                             &nbsp;{this.emp.first_name}
                                         </span>
@@ -38,12 +40,16 @@ class EmployeCard extends React.PureComponent {
                                         {this.emp.last_name}
                                     </span>
                                     <p className="text-muted text-left mb-0">Email  &nbsp;:&nbsp;  <span className="text-success">&nbsp;{this.emp.email}</span></p>
+                                    <div className="text-center mt-2">
+                                        <button className="btn btn-primary" onClick={() =>this.handleClose()}>Okay</button>
+                                    </div>
+
                                 </div>
                             </div>
                         </Modal.Body>
                     </Modal>
                 }
-                <div className='avtarStyle ma4 bg-light-yellow dib pa grow tc hand-cursor' onClick={() => this.showEmployeDetail()}>
+                <div className="avtarStyle ma4 bg-light-yellow dib pa grow tc hand-cursor" onClick={() => this.showEmployeDetail()}>
                     <img src={this.emp.avatar} alt='Avtar' />
                     <h1> {this.emp.first_name}</h1>
                     <p>{this.emp.last_name}</p>
